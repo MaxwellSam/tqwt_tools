@@ -3,7 +3,7 @@ from typing import Tuple
 import numpy as np
 from scipy.fftpack import fft, ifft
 
-from tqwt_tools.tqwt.check_params import check_params
+from tqwt_tools.tqwt_tools.tqwt.check_params import check_params
 
 
 def tqwt(x: np.ndarray, q: float, redundancy: float, stages: int) -> np.ndarray:
@@ -53,6 +53,10 @@ def tqwt(x: np.ndarray, q: float, redundancy: float, stages: int) -> np.ndarray:
     """
     check_params(q, redundancy, stages)
     if x.shape[0] % 2 or len(x.shape) != 1:
+        print(x)
+        print(x.shape)
+        print(len(x.shape))
+        print(x.shape[0])
         raise ValueError("Input signal x needs to be one dimensional and of even length!")
     x = np.asarray(x)
 
